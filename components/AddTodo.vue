@@ -1,12 +1,12 @@
 <template>
   <form>
     <input type="text" name="addTodo" id="addTodo" v-model="newTodo" />
-    <button type="submit" @click.prevent="addNewTask">Add Task</button>
+    <button type="submit" @click.prevent="addTask">Add Task</button>
   </form>
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -14,13 +14,15 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["addTask"]),
-    addNewTask() {
+    ...mapActions(["addNewTask"]),
+    addTask() {
       if (!this.newTodo) {
         this.$swal("Please enter a task");
       } else {
-        this.addTask(this.newTodo);
-        this.$swal(`Great! Remind Me To Remind You To ${this.newTodo}`);
+        this.addNewTask(this.newTodo);
+        this.$swal(
+          `Great! Remind Me To Remind You To ${this.newTodo.toUpperCase()}`.toUpperCase()
+        );
         this.newTodo = "";
       }
     },

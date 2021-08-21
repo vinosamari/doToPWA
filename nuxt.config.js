@@ -1,14 +1,15 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "DoTo",
+    title: "DoTo Task Manager",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         hid: "description",
         name: "description",
-        content: "A simple to do web app with a personality"
+        content:
+          "A simple to do web app with a personality. Works on and offline."
       },
       { name: "format-detection", content: "telephone=no" }
     ],
@@ -128,7 +129,11 @@ export default {
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    common: {
+      Accept: "application/json, text/plain, */*"
+    }
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

@@ -45,8 +45,6 @@
             />
           </svg>
         </button>
-      </div>
-      <div class="buttonClass">
         <!-- EDIT BUTTON -->
         <button
           class="doneBtn"
@@ -65,6 +63,7 @@
           </svg>
         </button>
       </div>
+      <div class="buttonClass"></div>
     </div>
   </section>
 </template>
@@ -80,10 +79,16 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["taskDone"]),
+    ...mapActions(["taskDone", "deleteTask"]),
     doneTask() {
       this.taskDone(this.todoItem.id);
-      this.$swal("Task Completed! Great Job!");
+      this.$swal(
+        `${this.todoItem.title.toUpperCase()} completed`.toUpperCase()
+      );
+    },
+    removeTask() {
+      this.deleteTask(this.todoItem.id);
+      this.$swal(`${this.todoItem.title.toUpperCase()} Deleted`.toUpperCase());
     },
   },
 };
@@ -106,7 +111,7 @@ section {
   @apply bg-green-600 p-2 rounded-full text-xs h-2 mr-2;
 }
 .buttonGroupGrid {
-  @apply grid grid-rows-2 gap-y-5 my-1;
+  @apply flex gap-y-5 my-1 items-center;
 }
 .buttonClass {
   @apply flex gap-5 items-center justify-center;

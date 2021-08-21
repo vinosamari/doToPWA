@@ -19,6 +19,6 @@ export default {
   padding: 0;
 }
 body {
-  @apply bg-myDeepBlue;
+  @apply bg-myDeepBlue antialiased;
 }
 </style>
