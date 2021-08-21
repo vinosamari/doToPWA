@@ -16,8 +16,13 @@ export default {
   methods: {
     ...mapMutations(["addTask"]),
     addNewTask() {
-      this.addTask(this.newTodo);
-      this.newTodo = "";
+      if (!this.newTodo) {
+        this.$swal("Please enter a task");
+      } else {
+        this.addTask(this.newTodo);
+        this.$swal(`Great! Remind Me To Remind You To ${this.newTodo}`);
+        this.newTodo = "";
+      }
     },
   },
 };

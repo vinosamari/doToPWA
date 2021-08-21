@@ -2,7 +2,7 @@
   <nav>
     <p class="dateTime"><span class="date">Wed 12/01/2021 </span>17:51</p>
     <div class="filterGroup">
-      <nuxt-link to="/dashboard">Dashboard</nuxt-link>
+      <nuxt-link to="/">Home</nuxt-link>
       <nuxt-link to="/help">Help</nuxt-link>
     </div>
   </nav>
@@ -13,14 +13,6 @@ export default {};
 </script>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  @apply bg-myDeepBlue;
-}
 nav {
   @apply flex items-center flex-col justify-evenly bg-myBlueGreen p-4 font-customHand gap-y-3;
 }

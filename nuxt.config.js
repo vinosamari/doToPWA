@@ -64,7 +64,7 @@ export default {
       this.$anime({
         targets: el,
         opacity: [0, 1],
-        duration: 200,
+        duration: 500,
         easing: "easeInOutSine",
         complete: done
       });
@@ -74,7 +74,38 @@ export default {
       this.$anime({
         targets: el,
         opacity: [1, 0],
-        duration: 200,
+        duration: 500,
+        easing: "easeInOutSine",
+        complete: done
+      });
+    }
+  },
+  layoutTransition: {
+    name: "dashlayout",
+    mode: "out-in",
+    css: false,
+
+    beforeEnter(el) {
+      this.$anime.set(el, {
+        opacity: 0
+      });
+    },
+
+    enter(el, done) {
+      this.$anime({
+        targets: el,
+        opacity: [0, 1],
+        duration: 500,
+        easing: "easeInOutSine",
+        complete: done
+      });
+    },
+
+    leave(el, done) {
+      this.$anime({
+        targets: el,
+        opacity: [1, 0],
+        duration: 500,
         easing: "easeInOutSine",
         complete: done
       });
@@ -92,7 +123,8 @@ export default {
   sweetalert: {
     confirmButtonColor: "#023047",
     cancelButtonColor: "#ff7674",
-    heightAuto: false
+    timer: 1500,
+    showConfirmButton: false
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

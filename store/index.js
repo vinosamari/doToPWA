@@ -1,65 +1,28 @@
 const state = {
-  todoList: [
-    {
-      id: 1,
-      title: "Make DoTo Web App Nuxt Project",
-      status: "pending"
-    },
-    {
-      id: 2,
-      title: "Create github repo",
-      status: "done"
-    },
-    {
-      id: 3,
-      title: "Prepare PWA capabilities",
-      status: "pending"
-    },
-    {
-      id: 4,
-      title: "Make more commits",
-      status: "done"
-    },
-    {
-      id: 5,
-      title: "Make UI commits",
-      status: "pending"
-    },
-    {
-      id: 6,
-      title: "Walk the dog",
-      status: "pending"
-    },
-    {
-      id: 7,
-      title: "Discord video meet",
-      status: "pending"
-    },
-    {
-      id: 8,
-      title: "Take family out for dinner",
-      status: "done"
-    }
-  ]
+  todoList: []
 };
 
 const mutations = {
-  taskDone: (state, newTaskId) => {
-    let stateTask = state.todoList.find(task => task.id == newTaskId);
-    stateTask.status = "done";
-  },
-  addTask: (state, task) => {
-    let lastIndex = state.todoList.length;
-    let newTask = {
-      id: lastIndex + 1,
-      title: task,
-      status: "pending"
-    };
-    state.todoList.push(newTask);
+  allTodos: (state, todos) => {
+    state.todoList = todos;
   }
 };
 
-const actions = {};
+const actions = {
+  async getAllTodos({ commit }) {
+    let todos = await this.$axios.get("http://127.0.0.1:1337/todos");
+
+    commit("allTodos", todos.data);
+  },
+  async taskDone({ dispatch }, taskID) {
+    console.log(taskID);
+
+    await this.$axios.put(`http://127.0.0.1:1337/todos/${taskID}`, {
+      completed: true
+    });
+    dispatch("getAllTodos");
+  }
+};
 export default {
   state,
   mutations,
