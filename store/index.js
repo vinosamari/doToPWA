@@ -1,8 +1,8 @@
 const url = process.env.API_URL || "http://127.0.0.1:1337/todos";
 
-const state = {
+const state = () => ({
   todoList: []
-};
+});
 
 const mutations = {
   allTodos: (state, todos) => {
