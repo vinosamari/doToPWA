@@ -130,9 +130,6 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    common: {
-      Accept: "application/json, text/plain, */*"
-    },
     baseURL: process.env.API_URL
   },
 
