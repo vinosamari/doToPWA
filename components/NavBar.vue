@@ -44,7 +44,7 @@ nav {
   @apply flex items-center flex-col justify-evenly bg-myBlueGreen p-4 font-customHand gap-y-3;
 }
 .dateTime {
-  @apply text-lg font-bold tracking-wide font-mono;
+  @apply text-xl font-bold tracking-wide font-mono;
 }
 .date {
   @apply font-black;

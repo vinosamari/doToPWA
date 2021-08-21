@@ -1,16 +1,19 @@
 <template>
-  <section>welcome to your dashboard</section>
+  <section>
+    <dash-pill></dash-pill>
+  </section>
 </template>
 
 <script>
+import DashPill from "~/components/DashPill.vue";
 export default {
+  components: { DashPill },
   layout: "dashlayout",
-  transition: "dashlayout",
 };
 </script>
 
 <style scoped>
 section {
-  @apply flex flex-col items-center justify-center text-white text-4xl;
+  @apply text-white text-4xl;
 }
 </style>

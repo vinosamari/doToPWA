@@ -35,7 +35,7 @@ nav {
   @apply flex items-center flex-col justify-evenly bg-myBlueGreen p-4 font-customHand gap-y-3;
 }
 .dateTime {
-  @apply text-lg font-bold font-mono;
+  @apply text-xl font-bold font-mono;
 }
 .date {
   @apply mr-4 font-extrabold;

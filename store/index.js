@@ -1,16 +1,12 @@
 const url = "http://127.0.0.1:1337/todos";
-const jokeUrl = "https://dad-jokes.p.rapidapi.com/random/joke";
+
 const state = {
-  todoList: [],
-  joke: ""
+  todoList: []
 };
 
 const mutations = {
   allTodos: (state, todos) => {
     state.todoList = todos;
-  },
-  fetchJoke: (state, joke) => {
-    state.joke = joke;
   }
 };
 
@@ -49,20 +45,24 @@ const actions = {
       title: taskTitle
     });
     dispatch("getAllTodos");
-  },
-  // GET JOKES
-  async fetchRandomJoke({ commit }) {
-    let joke = await this.$axios.get(jokeUrl, {
-      headers: {
-        "x-rapidapi-host": "dad-jokes.p.rapidapi.com",
-        "x-rapidapi-key": "35118d8d31msh198772385ae1327p1376c4jsn401cb7b9034d"
-      }
-    });
-    commit("fetchJoke", joke.data);
   }
 };
+
+const getters = {
+  doneTodos: state => {
+    return state.todoList.filter(todo => todo.completed === true);
+  },
+  pendingTodos: state => {
+    return state.todoList.filter(todo => todo.completed === false);
+  },
+  totalTodos: state => {
+    return state.todoList.length;
+  }
+};
+
 export default {
   state,
   mutations,
-  actions
+  actions,
+  getters
 };
