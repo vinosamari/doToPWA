@@ -56,6 +56,6 @@ section {
   @apply bg-green-900;
 }
 .due {
-  @apply bg-mySweetOrange;
+  @apply bg-mySweetOrange text-myDeepBlue;
 }
 </style>

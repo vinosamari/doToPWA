@@ -1,6 +1,5 @@
 <template>
   <main>
-    <p>{{ joke }}</p>
     <!-- ADD NEW TODO COMPONENT -->
     <add-todo></add-todo>
     <!-- DONE TASKS SECTION -->
@@ -37,7 +36,7 @@ export default {
   },
   components: { AddTodo, TodoItem },
   methods: {
-    ...mapActions(["getAllTodos", "fetchRandomJoke"]),
+    ...mapActions(["getAllTodos"]),
   },
   computed: {
     ...mapState(["todoList", "joke"]),
@@ -62,7 +61,6 @@ export default {
   },
   mounted() {
     this.getAllTodos();
-    // this.fetchRandomJoke();
   },
 };
 </script>

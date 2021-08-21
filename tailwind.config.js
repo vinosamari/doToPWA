@@ -33,7 +33,8 @@ module.exports = {
         ]
       },
       boxShadow: {
-        customShadow: "61px 51px 202px 24px rgba(0,0,0,0.85);"
+        customShadow: "-8px 61px 218px -32px rgba(0,0,0,0.97);",
+        textShadow: "4px 7px 24px rgba(0,0,0,0.82)"
       },
       fontSize: {
         customSize: ["0.95rem", { lineHeight: "1.35rem" }]
