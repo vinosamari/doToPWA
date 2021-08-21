@@ -1,4 +1,4 @@
-const url = "http://127.0.0.1:1337/todos" || process.env.STRAPI_URL;
+const url = process.env.STRAPI_URL || "http://127.0.0.1:1337/todos";
 
 const state = {
   todoList: []

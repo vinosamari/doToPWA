@@ -132,7 +132,8 @@ export default {
   axios: {
     common: {
       Accept: "application/json, text/plain, */*"
-    }
+    },
+    baseUrl: process.env.STRAPI_URL
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
