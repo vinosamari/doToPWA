@@ -133,7 +133,7 @@ export default {
     common: {
       Accept: "application/json, text/plain, */*"
     },
-    baseUrl: process.env.STRAPI_URL
+    baseURL: process.env.API_URL
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
