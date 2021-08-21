@@ -130,7 +130,12 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.API_URL
+    baseURL: "https://doto-api.herokuapp.com/"
+  },
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.API_URL
+    }
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
